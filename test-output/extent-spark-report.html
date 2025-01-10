@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">API Test Results</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Nov 1, 2024 03:12:44 PM</span></a>
+<a href="#"><span class="badge badge-primary">Jan 10, 2025 03:51:41 PM</span></a>
 </li>
 </ul>
 </div>
@@ -67,6 +67,7 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -81,7 +82,7 @@
           <div class="test-detail">
             <p class="name">Pet CRUD Operations</p>
             <p class="text-sm">
-              <span>3:12:44 PM</span> / <span>00:00:26:527</span>
+              <span>3:51:41 PM</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -90,9 +91,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">Pet CRUD Operations</h5>
-<span class='badge badge-success'>11.01.2024 3:12:44 PM</span>
-<span class='badge badge-danger'>11.01.2024 3:13:11 PM</span>
-<span class='badge badge-default'>00:00:26:527</span>
+<span class='badge badge-success'>01.10.2025 3:51:41 PM</span>
+<span class='badge badge-danger'>01.10.2025 3:51:41 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -100,99 +101,442 @@
 </div>
 <div class="m-t-10 m-l-5">Tests CRUD operations for Pets API</div>
 </div>
+</div>          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="2"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">createPet</p>
+            <p class="text-sm">
+              <span>3:51:41 PM</span> / <span>00:00:03:056</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">createPet</h5>
+<span class='badge badge-success'>01.10.2025 3:51:41 PM</span>
+<span class='badge badge-danger'>01.10.2025 3:51:44 PM</span>
+<span class='badge badge-default'>00:00:03:056</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Description: Positive - Create Pet</div>
+</div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:12:55 PM</td>
+        <td>3:51:44 PM</td>
         <td>
           Created pet with name: doggie
         </td>
       </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">deleteNonexistentPet</p>
+            <p class="text-sm">
+              <span>3:51:45 PM</span> / <span>00:00:00:981</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">deleteNonexistentPet</h5>
+<span class='badge badge-success'>01.10.2025 3:51:45 PM</span>
+<span class='badge badge-danger'>01.10.2025 3:51:46 PM</span>
+<span class='badge badge-default'>00:00:00:981</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Description: Negative - Delete Nonexistent Pet</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:12:57 PM</td>
+        <td>3:51:46 PM</td>
         <td>
-          Delete Nonexistent Pet: null
+          Attempted to delete nonexistent pet with ID: 99999
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="4"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">findPetByInvalidStatus</p>
+            <p class="text-sm">
+              <span>3:51:46 PM</span> / <span>00:00:00:929</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">findPetByInvalidStatus</h5>
+<span class='badge badge-success'>01.10.2025 3:51:46 PM</span>
+<span class='badge badge-danger'>01.10.2025 3:51:47 PM</span>
+<span class='badge badge-default'>00:00:00:929</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Description: Negative - Find Pet by Invalid Status</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:51:47 PM</td>
+        <td>
+          Attempted to find pet with invalid status.
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>3:12:58 PM</td>
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>3:51:47 PM</td>
         <td>
-          Find Pet by Invalid Status: null
+          Test failed: java.lang.AssertionError: Expected status code 404 but got 200 expected [404] but found [200]
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="5"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">updatePetWithMissingFields</p>
+            <p class="text-sm">
+              <span>3:51:47 PM</span> / <span>00:00:00:906</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">updatePetWithMissingFields</h5>
+<span class='badge badge-success'>01.10.2025 3:51:47 PM</span>
+<span class='badge badge-danger'>01.10.2025 3:51:48 PM</span>
+<span class='badge badge-default'>00:00:00:906</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Description: Negative - Update Pet with Missing Fields</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:51:48 PM</td>
+        <td>
+          Attempted to update pet with missing fields.
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>3:12:59 PM</td>
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>3:51:48 PM</td>
         <td>
-          Find Pet By Nonexistent ID: null
+          Test failed: java.lang.AssertionError: Expected status code 400 but got 200 expected [400] but found [200]
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="6"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">uploadPhotoInvalidId</p>
+            <p class="text-sm">
+              <span>3:51:48 PM</span> / <span>00:00:02:050</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">uploadPhotoInvalidId</h5>
+<span class='badge badge-success'>01.10.2025 3:51:48 PM</span>
+<span class='badge badge-danger'>01.10.2025 3:51:50 PM</span>
+<span class='badge badge-default'>00:00:02:050</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Description: Negative - Upload Photo with Invalid ID</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:51:50 PM</td>
+        <td>
+          Attempted to upload photo with invalid ID: 999999
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>3:13:00 PM</td>
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>3:51:50 PM</td>
         <td>
-          Update Pet with Missing Fields: null
+          Test failed: java.lang.AssertionError: Expected status code 404 but got 200 expected [404] but found [200]
         </td>
       </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="7"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">findPetById</p>
+            <p class="text-sm">
+              <span>3:51:50 PM</span> / <span>00:00:00:875</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">findPetById</h5>
+<span class='badge badge-success'>01.10.2025 3:51:50 PM</span>
+<span class='badge badge-danger'>01.10.2025 3:51:51 PM</span>
+<span class='badge badge-default'>00:00:00:875</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Description: Positive - Find Pet By ID</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:13:02 PM</td>
+        <td>3:51:51 PM</td>
         <td>
-          Upload Photo with Invalid ID: null
+          Found Pet by ID: 101
         </td>
       </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="8"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">findPetByStatus</p>
+            <p class="text-sm">
+              <span>3:51:51 PM</span> / <span>00:00:01:382</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">findPetByStatus</h5>
+<span class='badge badge-success'>01.10.2025 3:51:51 PM</span>
+<span class='badge badge-danger'>01.10.2025 3:51:52 PM</span>
+<span class='badge badge-default'>00:00:01:382</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=8</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Description: Positive - Find Pet By Status</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:13:03 PM</td>
+        <td>3:51:52 PM</td>
         <td>
-          Find Pet By ID: null
+          Find Pet By Status: Attempt to find pet with ID 101
         </td>
       </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="9"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">uploadPetPhoto</p>
+            <p class="text-sm">
+              <span>3:51:52 PM</span> / <span>00:00:01:999</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">uploadPetPhoto</h5>
+<span class='badge badge-success'>01.10.2025 3:51:52 PM</span>
+<span class='badge badge-danger'>01.10.2025 3:51:54 PM</span>
+<span class='badge badge-default'>00:00:01:999</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=9</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Description: Positive - Upload Pet Photo</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:13:04 PM</td>
+        <td>3:51:54 PM</td>
         <td>
-          Find Pet By Status null
+          Uploaded photo for Pet ID: 101
         </td>
       </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="10"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">updatePet</p>
+            <p class="text-sm">
+              <span>3:51:54 PM</span> / <span>00:00:01:890</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">updatePet</h5>
+<span class='badge badge-success'>01.10.2025 3:51:54 PM</span>
+<span class='badge badge-danger'>01.10.2025 3:51:56 PM</span>
+<span class='badge badge-default'>00:00:01:890</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=10</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Description: Positive - Update Pet</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:13:05 PM</td>
+        <td>3:51:56 PM</td>
         <td>
-          Update Pet with Form Data: null
+          Update Pet: Updated name to updatedDoggie
         </td>
       </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="11"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">deletePet</p>
+            <p class="text-sm">
+              <span>3:51:56 PM</span> / <span>00:00:00:863</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">deletePet</h5>
+<span class='badge badge-success'>01.10.2025 3:51:56 PM</span>
+<span class='badge badge-danger'>01.10.2025 3:51:57 PM</span>
+<span class='badge badge-default'>00:00:00:863</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=11</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Description: Positive - Delete Pet by ID</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:13:06 PM</td>
+        <td>3:51:57 PM</td>
         <td>
-          Update Pet with Invalid Form Data: null
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>3:13:08 PM</td>
-        <td>
-          Upload Pet Photo: null
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>3:13:10 PM</td>
-        <td>
-          Update Pet: updatedDoggie
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>3:13:11 PM</td>
-        <td>
-          UDelete Pet by ID: null
+          Deleted Pet with ID: 101
         </td>
       </tr>
   </tbody>
@@ -214,25 +558,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Nov 1, 2024 03:12:44 PM</h3>
+<h3>Jan 10, 2025 03:51:41 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Nov 1, 2024 03:13:12 PM</h3>
+<h3>Jan 10, 2025 03:51:58 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>1</h3>
+<h3>8</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>0</h3>
+<h3>3</h3>
 </div></div>
 </div>
 </div>
@@ -248,12 +592,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>1</b> tests passed
+<div><small data-tooltip='72%'>
+<b>8</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> tests failed,
+<small data-tooltip='27%'><b>3</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -273,8 +617,8 @@
 <div class="card-footer">
 <div><small data-tooltip='0%'><b>0</b> events passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> events failed,
-<b data-tooltip='%'>13</b> others
+<small data-tooltip='23%'><b>3</b> events failed,
+<b data-tooltip='%'>10</b> others
 </small>
 </div>
 </div>
@@ -290,7 +634,7 @@
 </div></div>
 <script>
 var timeline = {
-"Pet CRUD Operations":26.527
+"Pet CRUD Operations":0,"createPet":3.056,"deleteNonexistentPet":0.981,"findPetByInvalidStatus":0.929,"updatePetWithMissingFields":0.906,"uploadPhotoInvalidId":2.05,"findPetById":0.875,"findPetByStatus":1.382,"uploadPetPhoto":1.999,"updatePet":1.89,"deletePet":0.863
 };
 </script>
 <div class="row">
@@ -299,8 +643,8 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 1,
-failParent: 0,
+passParent: 8,
+failParent: 3,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -317,10 +661,10 @@ skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
 passEvents: 0,
-failEvents: 0,
+failEvents: 3,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 13
+infoEvents: 10
 };
 </script>        </div>
       </div>

@@ -6,6 +6,7 @@ import models.Pet.Category;
 import models.Pet.Tag;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class PetDataProvider {
 
@@ -17,8 +18,8 @@ public class PetDataProvider {
                                 101,
                                 new Category(1, "Dog Pets"),
                                 "doggie",
-                                Arrays.asList("https://example.com/photo.jpg"),
-                                Arrays.asList(new Tag(3, "Just")),
+                                List.of("https://example.com/photo.jpg"),
+                                List.of(new Tag(3, "Just")),
                                 "available"
                         )
                 },
@@ -27,8 +28,8 @@ public class PetDataProvider {
                                 102,
                                 new Category(2, "Cat Pets"),
                                 "kitty",
-                                Arrays.asList("https://example.com/cat_photo.jpg"),
-                                Arrays.asList(new Tag(4, "Just")),
+                                List.of("https://example.com/cat_photo.jpg"),
+                                List.of(new Tag(4, "Just")),
                                 "available"
                         )
                 }
@@ -43,8 +44,8 @@ public class PetDataProvider {
                                 101,
                                 new Category(1, "Dog Pets"),
                                 "updatedDoggie",
-                                Arrays.asList("https://example.com/updated_dog_photo.jpg"),
-                                Arrays.asList(new Tag(5, "Updated")),
+                                List.of("https://example.com/updated_dog_photo.jpg"),
+                                List.of(new Tag(5, "Updated")),
                                 "sold"
                         )
                 },
@@ -53,8 +54,8 @@ public class PetDataProvider {
                                 102,
                                 new Category(2, "Cat Pets"),
                                 "updatedKitty",
-                                Arrays.asList("https://example.com/updated_cat_photo.jpg"),
-                                Arrays.asList(new Tag(6, "Updated")),
+                                List.of("https://example.com/updated_cat_photo.jpg"),
+                                List.of(new Tag(6, "Updated")),
                                 "pending"
                         )
                 }

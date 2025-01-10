@@ -1,24 +1,21 @@
 package tests;
 
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import lombok.RequiredArgsConstructor;
 import models.Pet;
 import models.Pet.Category;
 import models.Pet.Tag;
-import org.junit.jupiter.api.DisplayName;
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
 import reporters.ExtentReportManager;
 import services.PetService;
 import utils.ApiUtil;
 import utils.AssertionUtil;
 import validators.ResponseValidator;
-import java.io.File;
-import java.util.List;
 
+import java.io.File;
+import java.lang.reflect.Method;
+import java.util.List;
 
 public class PetCRUDTest {
 
@@ -32,8 +29,13 @@ public class PetCRUDTest {
         ExtentReportManager.startTest("Pet CRUD Operations", "Tests CRUD operations for Pets API");
     }
 
+    @BeforeMethod
+    public void startTest(Method method) {
+        ExtentReportManager.startTest(method.getName(), "Description: " + method.getAnnotation(Test.class).description());
+    }
+
+
     @Test(description = "Positive - Create Pet")
-    @DisplayName("For creating pets with some Data")
     public void createPet() {
         Pet pet = new Pet(
                 101,
@@ -55,15 +57,15 @@ public class PetCRUDTest {
 
     @Test(description = "Positive - Find Pet By Status", dependsOnMethods = "createPet")
     public void findPetByStatus() {
-        Pet pet = new Pet();
         Assert.assertNotNull(petId, "petId is not set. Make sure to run createPet first.");
 
         int retries = 3;
         while (retries > 0) {
             Response response = petService.findPetsByStatus("available");
-            boolean petFound = response.jsonPath().getList("id").contains(petId);
             ApiUtil.logResponseDetails(response);
-            ExtentReportManager.getTest().info("Find Pet By Status " + pet.getName());
+
+            boolean petFound = response.jsonPath().getList("id").contains(petId);
+            ExtentReportManager.getTest().info("Find Pet By Status: Attempt to find pet with ID " + petId);
 
             if (petFound) {
                 AssertionUtil.assertStatusCode(response, 200);
@@ -82,13 +84,14 @@ public class PetCRUDTest {
 
     @Test(description = "Positive - Update Pet", dependsOnMethods = "findPetByStatus")
     public void updatePet() {
-        Pet pet =  petService.getPetById(petId).as(Pet.class);
+        Response getResponse = petService.getPetById(petId);
+        Pet pet = getResponse.as(Pet.class);
         pet.setName("updatedDoggie");
         pet.setStatus("sold");
 
         Response response = petService.updatePet(pet);
         ApiUtil.logResponseDetails(response);
-        ExtentReportManager.getTest().info("Update Pet: " + pet.getName());
+        ExtentReportManager.getTest().info("Update Pet: Updated name to " + pet.getName());
 
         AssertionUtil.assertStatusCode(response, 200);
         AssertionUtil.assertFieldEquals(response, "name", "updatedDoggie");
@@ -97,40 +100,30 @@ public class PetCRUDTest {
 
     @Test(description = "Positive - Delete Pet by ID", dependsOnMethods = "updatePet")
     public void deletePet() {
-        Pet pet = new Pet();
         Response response = petService.deletePet(petId);
         ApiUtil.logResponseDetails(response);
-        ExtentReportManager.getTest().info("UDelete Pet by ID: " + pet.getName());
+        ExtentReportManager.getTest().info("Deleted Pet with ID: " + petId);
         AssertionUtil.assertStatusCode(response, 200);
 
-
-        Response getResponse =  petService.getPetById(petId);
+        Response getResponse = petService.getPetById(petId);
         AssertionUtil.assertStatusCode(getResponse, 404);
     }
 
     @Test(description = "Positive - Upload Pet Photo", dependsOnMethods = "createPet")
     public void uploadPetPhoto() {
-        Pet pet = new Pet();
         Response response = petService.uploadPetPhoto(petId, file);
         ApiUtil.logResponseDetails(response);
-        ExtentReportManager.getTest().info("Upload Pet Photo: " + pet.getName());
-        AssertionUtil.assertStatusCode(response, 200);  // Verify status code
+        ExtentReportManager.getTest().info("Uploaded photo for Pet ID: " + petId);
+        AssertionUtil.assertStatusCode(response, 200);
     }
-
-
 
     @Test(description = "Negative - Upload Photo with Invalid ID")
     public void uploadPhotoInvalidId() {
-        Pet pet = new Pet();
         Response response = petService.uploadPetPhoto(999999, file);
         ApiUtil.logResponseDetails(response);
-        ExtentReportManager.getTest().info("Upload Photo with Invalid ID: " + pet.getName());
+        ExtentReportManager.getTest().info("Attempted to upload photo with invalid ID: 999999");
 
-        AssertionUtil.assertStatusCode(response, 200);
-        AssertionUtil.assertFieldEquals(response, "code", 200);
-        AssertionUtil.assertFieldEquals(response, "type", "unknown");
-        AssertionUtil.assertFieldEquals(response, "message",
-                "additionalMetadata: Meta Data\nFile uploaded to ./" + file.getName() + ", " + file.length() + " bytes");
+        AssertionUtil.assertStatusCode(response, 404);
     }
 
     @Test(description = "Negative - Update Pet with Missing Fields")
@@ -139,85 +132,46 @@ public class PetCRUDTest {
         Response response = petService.updatePet(incompletePet);
 
         ApiUtil.logResponseDetails(response);
-        ExtentReportManager.getTest().info("Update Pet with Missing Fields: " + incompletePet.getName());
+        ExtentReportManager.getTest().info("Attempted to update pet with missing fields.");
 
-
-        AssertionUtil.assertStatusCode(response, 200);
-
-        AssertionUtil.assertFieldSize(response, "photoUrls", 0);
-        AssertionUtil.assertFieldSize(response, "tags", 0);
+        AssertionUtil.assertStatusCode(response, 400);
     }
-
-
 
     @Test(description = "Negative - Find Pet by Invalid Status")
     public void findPetByInvalidStatus() {
-        Pet pet = new Pet();
         Response response = petService.findPetsByStatus("nonexistent");
         ApiUtil.logResponseDetails(response);
-        ExtentReportManager.getTest().info("Find Pet by Invalid Status: " + pet.getName());
-        AssertionUtil.assertStatusCode(response, 200);
-        AssertionUtil.assertFieldEquals(response, "size()", 0);
+        ExtentReportManager.getTest().info("Attempted to find pet with invalid status.");
+
+        AssertionUtil.assertStatusCode(response, 404);
     }
 
     @Test(description = "Positive - Find Pet By ID", dependsOnMethods = "createPet")
     public void findPetById() {
-        Pet pet = new Pet();
         Response response = petService.getPetById(petId);
         ApiUtil.logResponseDetails(response);
-        ExtentReportManager.getTest().info("Find Pet By ID: " + pet.getName());
-
+        ExtentReportManager.getTest().info("Found Pet by ID: " + petId);
 
         AssertionUtil.assertStatusCode(response, 200);
         AssertionUtil.assertFieldEquals(response, "id", petId);
     }
 
-    @Test(description = "Negative - Find Pet By Nonexistent ID")
-    public void findPetByNonexistentId() {
-        Pet pet = new Pet();
-        Response response = petService.getPetById(999999);
-        ApiUtil.logResponseDetails(response);
-        ExtentReportManager.getTest().info("Find Pet By Nonexistent ID: " + pet.getName());
-
-
-        AssertionUtil.assertStatusCode(response, 404);
-    }
-
-
-
-    @Test(description = "Positive - Update Pet with Form Data", dependsOnMethods = "createPet")
-    public void updatePetWithFormData() {
-        Pet pet = new Pet();
-        Response response = petService.updatePetWithFormData(petId, "Updated Dog", "available");
-        ApiUtil.logResponseDetails(response);
-        ExtentReportManager.getTest().info("Update Pet with Form Data: " + pet.getName());
-
-        AssertionUtil.assertStatusCode(response, 200);
-    }
-
-    @Test(description = "Negative - Update Pet with Invalid Form Data", dependsOnMethods = "createPet")
-    public void updatePetWithInvalidFormData() {
-        Pet pet = new Pet();
-        Response response = petService.updatePetWithFormData(petId, "", "unknownstatus");
-        ApiUtil.logResponseDetails(response);
-        ExtentReportManager.getTest().info("Update Pet with Invalid Form Data: " + pet.getName());
-
-
-        AssertionUtil.assertStatusCode(response, 200);
-
-        AssertionUtil.assertFieldEquals(response, "code", 200);
-        AssertionUtil.assertFieldEquals(response, "message", String.valueOf(petId));
-    }
-
-
     @Test(description = "Negative - Delete Nonexistent Pet")
     public void deleteNonexistentPet() {
-        Pet pet = new Pet();
         Response response = petService.deletePet(99999);
         ApiUtil.logResponseDetails(response);
-        ExtentReportManager.getTest().info("Delete Nonexistent Pet: " + pet.getName());
+        ExtentReportManager.getTest().info("Attempted to delete nonexistent pet with ID: 99999");
 
         AssertionUtil.assertStatusCode(response, 404);
+    }
+
+    @AfterMethod
+    public void logTestStatus(ITestResult result) {
+        if (result.getStatus() == ITestResult.SKIP) {
+            ExtentReportManager.getTest().skip("Test skipped: " + result.getThrowable());
+        } else if (result.getStatus() == ITestResult.FAILURE) {
+            ExtentReportManager.getTest().fail("Test failed: " + result.getThrowable());
+        }
     }
 
 

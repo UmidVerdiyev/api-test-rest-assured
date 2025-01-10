@@ -1,4 +1,11 @@
-<listeners>
-    <listener class-name="listeners.RetryListener"/>
-    <listener class-name="listeners.LogListener"/>
-</listeners>
+<suite name="PetCRUDTestSuite" verbose="1">
+    <listeners>
+        <listener class-name="listeners.RetryListener" />
+        <listener class-name="listeners.LogListener" />
+    </listeners>
+    <test name="PetCRUDTests">
+        <classes>
+            <class name="tests.PetCRUDTest" />
+        </classes>
+    </test>
+</suite>
